@@ -5,7 +5,7 @@ export default function Topbar() {
     <div className="border-black border-b h-[40px] flex items-center justify-between px-5">
         <div>Logo</div>
 
-        <ul className="flex items-center gap-30">
+        <ul className="flex items-center gap-3">
             <li>
                 <Link href="/" shallow={false}>
                     Hem
