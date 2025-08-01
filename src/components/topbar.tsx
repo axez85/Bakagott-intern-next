@@ -2,18 +2,26 @@ import Link from 'next/link'
  
 export default function Topbar() {
   return (
-    <div className="border-black border-b h-[40px] flex items-center justify-between px-5">
-        <div>Logo</div>
+    <div className="border-black border-b h-[140px] flex items-center justify-between px-5">
+        <img src="https://bakagott.se/wp-content/uploads/2023/04/cropped-cropped-Original-size-BAKA-GOTT-1-1-207x118.png"></img>
 
-        <ul className="flex items-center gap-30">
-            <li>
-                <Link href="/" shallow={false}>
-                    Hem
+        <ul className="flex items-center gap-6 h-full">
+            <li className="h-full">
+                <Link 
+                    href="/" 
+                    className="h-full flex items-center px-6 hover:bg-[#134978] hover:text-white transition-colors"
+                    shallow={false}>
+                    Etikett
                 </Link>
-                <Link href="/label" shallow={false}>
-                    Etiketter
-                </Link>
+            </li>
+            <li className="h-full">
+                <Link 
+                    href="/delivery-note"
+                    className="h-full flex items-center px-6 hover:bg-[#134978] hover:text-white transition-colors"
 
+                    shallow={false}>
+                    Följesedel
+                </Link>
             </li>
         </ul>
     </div>
