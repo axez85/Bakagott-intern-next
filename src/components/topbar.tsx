@@ -1,9 +1,15 @@
 import Link from 'next/link'
- 
+import Image from 'next/image'
+
 export default function Topbar() {
   return (
     <div className="border-black border-b h-[140px] flex items-center justify-between px-5">
-        <img src="https://bakagott.se/wp-content/uploads/2023/04/cropped-cropped-Original-size-BAKA-GOTT-1-1-207x118.png"></img>
+        <Image 
+            src="https://bakagott.se/wp-content/uploads/2023/04/cropped-cropped-Original-size-BAKA-GOTT-1-1-207x118.png"
+            width={207}
+            height={118}
+            alt="Bakagoott.se - Svensk Pizzabotten"
+        />
 
         <ul className="flex items-center gap-6 h-full">
             <li className="h-full">
