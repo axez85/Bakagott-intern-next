@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button';
+import { Checkbox } from '@/components/ui/checkbox';
 import Form from 'next/form'
 
 export default function Home() {
@@ -67,19 +68,25 @@ export default function Home() {
         
 
         <div>
-          <input
-            type="checkbox"
-            id="Checkweight1"
-            name="Checkweight"
+            <div className="mb-4">
+                <div className="text-base text-lg font-semibold">
+                  Visa</div>
+                <div>
+                  Välj vad som ska visas vid utskriften av etiketten.
+                </div>
+              </div>
 
-            className="w-full border border-gray-300 rounded-lg p-2"
-            checked
-          />
-          <label htmlFor="Checkweight" className="block text-lg  mb-2">
-            Visa Vikt på etiketten
-          </label>
         </div>
 
+        <Checkbox id="Showweight" />
+          <label
+            htmlFor="Showweight"
+            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+          >
+            Visa Vikt på etiketten
+          </label>
+        <br></br>
+        
         <Button variant="outline">Visa Etikett</Button>
 
       </Form>
