@@ -1,3 +1,4 @@
+import { Button } from '@/components/ui/button';
 import Form from 'next/form'
 
 export default function Home() {
@@ -79,12 +80,7 @@ export default function Home() {
           </label>
         </div>
 
-
-              <button 
-                className="bg-sky-500 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded-full"
-                type="submit">
-                  Visa Etikett
-              </button>
+        <Button variant="outline">Visa Etikett</Button>
 
       </Form>
     </div>
