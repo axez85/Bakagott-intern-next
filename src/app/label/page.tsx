@@ -13,7 +13,7 @@ export default function Label() {
 
     <form>
       <div className="space-y-12">
-{/*         <div className="border-b border-gray-900/10 pb-12">
+        <div className="border-b border-gray-900/10 pb-12">
           <h2 className="text-base/7 font-semibold text-gray-900">Profile</h2>
           <p className="mt-1 text-sm/6 text-gray-600">
             This information will be displayed publicly so be careful what you share.
@@ -92,7 +92,7 @@ export default function Label() {
             </div>
           </div>
         </div>
- */}
+
         <div className="border-b border-gray-900/10 pb-12">
           <h2 className="text-base/7 font-semibold text-gray-900">Skriv ut en etikett</h2>
           <p className="mt-1 text-sm/6 text-gray-600">Skriv ut etiketter som är sparade.</p>
@@ -156,12 +156,12 @@ export default function Label() {
                 >
                   <option>Pizzabotten - Basnivå</option>
 											<option value="none">Välj en etikett</option>
-											<option value="PBB" selected>Pizzabotten - Basnivå</option>
-											<option value="PBM">Pizzabotten - Mellannivå</option>
-											<option value="LMB">Lasagne Mixum - Basnivå</option>
-											<option value="LMM">Lasagne Mixum - Mellannivå</option>
-											<option value="LMH">Lasagne Mixum - Högnivå</option>
-											<option value="PBF">Pizzabotten - Basnivå (Föreningspizzan) testar aatt göra denna längre och se vart det slutar.</option>
+											<option value="pizzabotten-bas" selected>Pizzabotten - Basnivå</option>
+											<option value="pizzabotten-mellan">Pizzabotten - Mellannivå</option>
+											<option value="lasagne-bas">Lasagne Mixum - Basnivå</option>
+											<option value="lasagne-mellan">Lasagne Mixum - Mellannivå</option>
+											<option value="lasagne-hög">Lasagne Mixum - Högnivå</option>
+											<option value="pizzabotten-forening">Pizzabotten - Basnivå (Föreningspizzan) testar aatt göra denna längre och se vart det slutar.</option>
 											<option value="TBB">Tunnbröd - Basnivå</option>
 											<option value="TBM">Tunnbröd - Mellannivå</option>
                 </select>
@@ -237,7 +237,7 @@ export default function Label() {
         <div className="border-b border-gray-900/10 pb-12">
           <h2 className="text-base/7 font-semibold text-gray-900">Notifications</h2>
           <p className="mt-1 text-sm/6 text-gray-600">
-            We'll always let you know about important changes, but you pick what else you want to hear about.
+            We&apos;ll always let you know about important changes, but you pick what else you want to hear about.
           </p>
 
           <div className="mt-10 space-y-10">

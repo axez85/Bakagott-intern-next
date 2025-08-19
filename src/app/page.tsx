@@ -1,7 +1,12 @@
+import { Button } from '@/components/ui/button';
+import { Checkbox } from '@/components/ui/checkbox';
+import Form from 'next/form'
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-white flex flex-col items-center px-4 py-10">
-      <form className="w-full max-w-3/4 space-y-6">
+      <Form action="/print-label"
+      className="w-full max-w-3/4 space-y-6"> 
         <div>
           <label htmlFor="saved-labels" className="block text-lg font-semibold mb-2">
             Sparade etiketter
@@ -36,7 +41,55 @@ export default function Home() {
             placeholder="Ange underrubrik..."
           />
         </div>
-      </form>
+
+        <div>
+          <label htmlFor="ammount" className="block text-lg font-semibold mb-2">
+            Antal (st)
+          </label>
+          <input
+            type="number"
+            id="ammount"
+            name="ammount"
+            className="w-full border border-gray-300 rounded-lg p-2"
+          />
+        </div>
+
+        <div>
+          <label htmlFor="weight" className="block text-lg font-semibold mb-2">
+            Vikt (gram)
+          </label>
+          <input
+            type="number"
+            id="weight"
+            name="weight"
+            className="w-full border border-gray-300 rounded-lg p-2"
+          />
+        </div>
+        
+
+        <div>
+            <div className="mb-4">
+                <div className="text-base text-lg font-semibold">
+                  Visa</div>
+                <div>
+                  Välj vad som ska visas vid utskriften av etiketten.
+                </div>
+              </div>
+
+        </div>
+
+        <Checkbox id="Showweight" />
+          <label
+            htmlFor="Showweight"
+            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+          >
+            Visa Vikt på etiketten
+          </label>
+        <br></br>
+        
+        <Button variant="outline">Visa Etikett</Button>
+
+      </Form>
     </div>
   );
 }
