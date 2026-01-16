@@ -1,0 +1,15 @@
+services:
+  bakagott-intern:
+    image: .
+    container_name: bakagott-intern
+    restart: always
+    env_file:
+      - .env.production
+    networks:
+      - web
+    labels:
+      - "traefik.enable=true"
+
+networks:
+  web:
+    external: true
