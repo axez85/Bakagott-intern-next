@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout "${{ gitea.repository }}"
         uses: actions/checkout@v4
 
       - name: Set up Docker
@@ -15,38 +15,41 @@ jobs:
 
       - name: Login to registry
         run: |
-          echo "${{ secrets.REGISTRY_PASSWORD }}" | docker login gitea.yourdomain.local \
+          echo "${{ secrets.REGISTRY_PASSWORD }}" | docker login localhost:5600 \
             -u "${{ secrets.REGISTRY_USER }}" --password-stdin
 
       - name: Build & push image
         run: |
-          docker build -t gitea.yourdomain.local/bakagott-intern-next:latest .
-          docker push gitea.yourdomain.local/bakagott-intern-next:latest
+          docker build -t localhost:5600/bakagott-intern-next:latest .
+          docker push localhost:5600/bakagott-intern-next:latest
 
-      - name: Deploy via SSH
-        uses: appleboy/ssh-action@v1
-        with:
-          host: ${{ secrets.SERVER_HOST }}
-          username: ${{ secrets.SERVER_USER }}
-          key: ${{ secrets.SERVER_SSH_KEY }}
-          script: |
-            cd /srv/bakagott-intern-next
-            docker compose pull
-            docker compose up -d
+      - name: Chech status
+        run: echo "🍏 This job's status is ${{ job.status }}."
+#
+#       - name: Deploy via SSH
+#         uses: appleboy/ssh-action@v1
+#         with:
+#           host: ${{ secrets.SERVER_HOST }}
+#           username: ${{ secrets.SERVER_USER }}
+#           key: ${{ secrets.SERVER_SSH_KEY }}
+#           script: |
+#             cd /srv/bakagott-intern-next
+#             docker compose pull
+#             docker compose up -d
 
 
-jobs:
-  Explore-Gitea-Actions:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "🎉 Job was automatically triggered by ${{ gitea.actor }} a ${{ gitea.event_name }} event."
-      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by Gitea!"
-      - run: echo "🔎 The name of your branch is ${{ gitea.ref }} and your repository is ${{ gitea.repository }}."
-      - name: Check out repository code
-        uses: actions/checkout@v4
-      - run: echo "💡 The ${{ gitea.repository }} repository has been cloned to the runner."
-      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-      - name: List files in the repository
-        run: |
-          ls ${{ gitea.workspace }}
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+# jobs:
+#   Explore-Gitea-Actions:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - run: echo "🎉 Job was automatically triggered by ${{ gitea.actor }} a ${{ gitea.event_name }} event."
+#       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by Gitea!"
+#       - run: echo "🔎 The name of your branch is ${{ gitea.ref }} and your repository is ${{ gitea.repository }}."
+#       - name: Check out repository code
+#         uses: actions/checkout@v4
+#       - run: echo "💡 The ${{ gitea.repository }} repository has been cloned to the runner."
+#       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+#       - name: List files in the repository
+#         run: |
+#           ls ${{ gitea.workspace }}
+#       - run: echo "🍏 This job's status is ${{ job.status }}."
